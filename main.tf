@@ -93,13 +93,13 @@ resource "azurerm_kubernetes_flux_configuration" "main" {
     garbage_collection_enabled = true
   }
 
-  # kustomizations {
-  #   name                       = "apps"
-  #   path                       = "./apps/staging"
-  #   sync_interval_in_seconds   = 300
-  #   depends_on                 = ["infra-configs"]
-  #   garbage_collection_enabled = true
-  # }
+  kustomizations {
+    name                       = "apps"
+    path                       = "./apps/staging"
+    sync_interval_in_seconds   = 300
+    depends_on                 = ["infra-configs"]
+    garbage_collection_enabled = true
+  }
 
   scope = "cluster"
 
